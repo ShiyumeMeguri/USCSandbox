@@ -27,7 +27,7 @@ namespace USCSandbox.Processor
                 CBParams.Add(new ConstantBufferParameter(r));
             }
 
-            bool hasStructParams = engVer.IsGreaterEqual(2017, 3);
+            bool hasStructParams = engVer.GreaterThanOrEquals(2017, 3);
             if (hasStructParams)
             {
                 var structCount = r.ReadInt32();

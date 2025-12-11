@@ -21,8 +21,8 @@ namespace USCSandbox.Processor
 
         public ShaderSubProgram(AssetsFileReader r, UnityVersion version)
         {
-            var hasStatsTempRegister = version.IsGreaterEqual(5, 5);
-            var hasLocalKeywords = version.IsLess(2021, 2) && version.IsGreaterEqual(2019, 1);
+            var hasStatsTempRegister = version.GreaterThanOrEquals(5, 5);
+            var hasLocalKeywords = version.LessThan(2021, 2) && version.GreaterThanOrEquals(2019, 1);
 
             var blobVersion = r.ReadInt32();
             ProgramType = r.ReadInt32();
@@ -62,7 +62,7 @@ namespace USCSandbox.Processor
 
             BindChannels = new ParserBindChannels(r);
 
-            if (version.IsLess(2021))
+            if (version.LessThan(2021))
             {
                 ShaderParams = new ShaderParams(r, version, false);
             }
@@ -70,7 +70,7 @@ namespace USCSandbox.Processor
 
         public ShaderGpuProgramType GetProgramType(UnityVersion version)
         {
-            if (version.IsGreaterEqual(5, 5))
+            if (version.GreaterThanOrEquals(5, 5))
             {
                 return ((ShaderGpuProgramType55)ProgramType).ToGpuProgramType();
             }

@@ -12,7 +12,7 @@ namespace USCSandbox.Processor
         {
             Offset = reader.ReadInt32();
             Length = reader.ReadInt32();
-            if (engVer.IsGreaterEqual(2019, 3))
+            if (engVer.GreaterThanOrEquals(2019, 3))
             {
                 Segment = reader.ReadInt32();
             }

@@ -19,8 +19,8 @@ namespace USCSandbox.Processor
             Name = name;
             Index = index;
 
-            var hasNewTextureParams = engVer.IsGreaterEqual(2018, 2);
-            var hasMultiSampled = engVer.IsGreaterEqual(2017, 3);
+            var hasNewTextureParams = engVer.GreaterThanOrEquals(2018, 2);
+            var hasMultiSampled = engVer.GreaterThanOrEquals(2017, 3);
             if (hasNewTextureParams)
             {
                 var textureExtraValue = r.ReadUInt32();

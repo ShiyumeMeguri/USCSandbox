@@ -32,7 +32,7 @@ namespace AssetRipper.Export.Modules.Shaders.UltraShaderConverter.Converter
             bool hasHeader = graphicApi != GPUPlatform.d3d9;
             if (hasHeader)
             {
-                bool hasGSInputPrimitive = version.IsGreaterEqual(5, 4);
+                bool hasGSInputPrimitive = version.GreaterThanOrEquals(5, 4);
                 int offset = hasGSInputPrimitive ? 6 : 5;
                 if (headerVersion >= 2)
                 {
